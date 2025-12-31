@@ -5,8 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
-  schedule:
-    - cron: '0 3,4,11 * * *' # At 00:00 on Monday
+  # schedule:
+  #   - cron: '0 3,4,11 * * *' # At 00:00 on Monday
 
 jobs:
   build:
