@@ -57,13 +57,13 @@ class NotificationManager:
         statuses = self.__load_statuses()
 
         # Check if the current status is different from the last recorded status
-        # if not statuses or current_status != statuses[-1]["status"]:
-        #     self.__save_current_status(current_status)
-        #     self.__send_notifications(res)
-        # else:
-        #     print("Status unchanged. No notification sent.")
-        self.__save_current_status(current_status)
-        self.__send_notifications(res)
+        if not statuses or current_status != statuses[-1]["status"]:
+            self.__save_current_status(current_status)
+            self.__send_notifications(res)
+        else:
+            print("Status unchanged. No notification sent.")
+        # self.__save_current_status(current_status)
+        # self.__send_notifications(res)
 
     def __load_statuses(self) -> list:
         if os.path.exists(self.__status_file):
